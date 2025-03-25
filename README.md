@@ -37,14 +37,14 @@ fnm install 22.14.0
 fnm use 22.14.0
 ```
 
-Install [pnpm](https://pnpm.io/)
+Install [PNPM](https://pnpm.io/)
 
 ```bash
 corepack enable pnpm
 corepack use pnpm@latest --activate
 ```
 
-GitHub
+Install [GitHub CLI](https://cli.github.com/)
 
 ```bash
 brew install gh
@@ -53,48 +53,64 @@ brew install gh
 
 ## Applications
 
-Google Chrome
+Install [Google Chrome](https://www.google.com/chrome/)
 
 ```bash
 brew install --cask google-chrome
 ```
 
-Microsoft Edge
+Install [Microsoft Edge](https://www.microsoft.com/en-us/edge)
 
 ```bash
 brew install --cask microsoft-edge
 ```
 
-1Password
-
-```bash
-brew install --cask warp
-```
+Install [1Password](https://1password.com/)
 
 ```bash
 brew install --cask 1password
 brew install --cask 1password-cli
 ```
 
-OrbStack (Docker)
+Install [Warp](https://www.warp.dev/)
+
+```bash
+brew install --cask warp
+```
+
+Install [OrbStack](https://www.orbstack.dev/)
 
 ```bash
 brew install orbstack
 ```
 
-Install Bruno
+Install [Bruno](https://www.usebruno.com/)
 
 ```bash
 brew install --cask bruno
 ```
 
-## Visual Studio Code
+Install [Raycast](https://raycast.com/)
+
+```bash
+brew install --cask raycast
+```
+
+Install [Ollama](https://ollama.com/)
+
+```bash
+brew install --cask ollama
+```
+
+1. Install `Qwen2.5-Coder` model: `ollama run qwen2.5-coder:1.5b`
+
+## Visual Studio [Code](https://code.visualstudio.com/)
 
 ```bash
 brew install --cask visual-studio-code
 ```
 
-Install extensions:
+1. Install extensions:
 
 ```bash
 code --install-extension alefragnani.project-manager
@@ -113,6 +129,20 @@ code --install-extension stylelint.vscode-stylelint
 code --install-extension unifiedjs.vscode-mdx
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension yoavbls.pretty-ts-errors
+code --install-extension enkia.tokyo-night
+code --install-extension 1password.op-vscode
+code --install-extension astro-build.astro-vscode
+code --install-extension joshbolduc.commitlint
+code --install-extension vivaxy.vscode-conventional-commits
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension oderwat.indent-rainbow
+code --install-extension evondev.indent-rainbow-palettes
+code --install-extension codeandstuff.package-json-upgrade
+code --install-extension tal7aouy.rainbow-bracket
+code --install-extension supermaven.supermaven
+code --install-extension vue.volar
+code --install-extension wakatime.vscode-wakatime
+code --install-extension redhat.vscode-yaml
 ```
 
 ## Settings
