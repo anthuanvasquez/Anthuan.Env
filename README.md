@@ -62,10 +62,13 @@ brew install pyenv
 pyenv install 3.12
 pyenv global 3.12
 ```
-2. Setup `zsh`
 
-```shell
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+2. Setup shell environment `zsh`
+
+```bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init - zsh)"' >> ~/.zshrc
 ```
 
 ## Applications
@@ -113,6 +116,12 @@ Install [Raycast](https://raycast.com/)
 brew install --cask raycast
 ```
 
+Install [Wakatime](https://wakatime.com/)
+
+```bash
+brew install --cask wakatime
+```
+
 Install [Ollama](https://ollama.com/)
 
 ```bash
@@ -120,6 +129,7 @@ brew install --cask ollama
 ```
 
 1. Install `Qwen2.5-Coder` model: `ollama run qwen2.5-coder:1.5b`
+2. Install `Deeseek-Coder` model: `ollama run deeseek-coder-v2:1.5b`
 
 ## Visual Studio [Code](https://code.visualstudio.com/)
 
