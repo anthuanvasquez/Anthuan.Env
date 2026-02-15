@@ -193,5 +193,3 @@ code --install-extension vue.volar
 code --install-extension wakatime.vscode-wakatime
 code --install-extension redhat.vscode-yaml
 ```
-
-## Settings
