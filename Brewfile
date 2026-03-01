@@ -10,6 +10,7 @@ brew "zoxide"
 brew "fnm"
 brew "gh"
 brew "pyenv"
+brew "rclone"
 
 # Casks (GUI Applications)
 cask "warp"
