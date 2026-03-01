@@ -14,6 +14,7 @@ brew "gh"
 brew "pyenv"
 brew "rclone"
 brew "stow"
+brew "tree"
 brew "git-lfs"
 brew "git-delta"
 
