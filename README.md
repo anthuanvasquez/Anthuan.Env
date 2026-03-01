@@ -28,11 +28,10 @@ cd Anthuan.Env
 ### 2. Run the main installer
 
 This script will run everything in sequence:
-- Install Homebrew and formulas/casks from the `Brewfile`
-- Setup Node.js environment (FNM, Node 22, pnpm)
+- Install Homebrew and formulas/casks from the `Brewfile` (including `stow` for dotfiles)
+- Setup Node.js environment (FNM, Node 22 via `.node-version`, pnpm)
 - Setup Python environment (pyenv, Python 3.12)
 - Configure VS Code extensions
-- Symlink config files to your user directory (`~`)
 
 To run the installation:
 
@@ -43,6 +42,16 @@ To run the installation:
 **Note:** If you get a permission error, ensure the scripts are executable:
 ```bash
 chmod +x scripts/*.sh
+```
+
+### 3. Apply Dotfiles with Stow
+
+We use GNU Stow to manage symlinks cleanly from the `dotfiles/` directory to your home directory (`~`).
+
+```bash
+cd ~/Sites/Anthuan.Env/dotfiles
+stow shell
+stow git
 ```
 
 ## Directory Structure
@@ -70,7 +79,6 @@ If you'd rather run steps individually, you can execute any script independently
 ./scripts/node.sh       # Sets up FNM, Node, PNPM
 ./scripts/python.sh     # Sets up Pyenv and Python 3.12
 ./scripts/vscode.sh     # Installs VS Code extensions
-./scripts/symlink.sh    # Creates dotfile symlinks in your home folder
 ./scripts/macos.sh      # Applies sensible macOS defaults
 ```
 

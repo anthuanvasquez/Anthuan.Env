@@ -13,6 +13,7 @@ brew "bun"
 brew "gh"
 brew "pyenv"
 brew "rclone"
+brew "stow"
 brew "git-lfs"
 brew "git-delta"
 
