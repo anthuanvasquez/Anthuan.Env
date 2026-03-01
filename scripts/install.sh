@@ -21,9 +21,6 @@ bash "$DIR/python.sh"
 echo "4. Setting up VS Code..."
 bash "$DIR/vscode.sh"
 
-echo "5. Symlinking Configuration Files..."
-bash "$DIR/symlink.sh"
-
 echo "======================================"
 echo "    Installation Complete! 🚀         "
 echo "======================================"
