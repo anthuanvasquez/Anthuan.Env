@@ -18,6 +18,21 @@ export interface VSCodeExtension {
 }
 
 export const setupData: Tool[] = [
+  // Automated Setup
+  {
+    id: 'automated-install',
+    name: 'Automated Installer',
+    description: 'Instala y configura todo con un solo script',
+    category: 'Automated Setup',
+    url: 'https://github.com/anthuanvasquez/Anthuan.Env',
+    commands: [
+      'git clone git@github.com:anthuanvasquez/Anthuan.Env.git ~/Sites/Anthuan.Env',
+      'cd ~/Sites/Anthuan.Env',
+      './scripts/install.sh'
+    ],
+    icon: '🚀'
+  },
+
   // Initial Setup
   {
     id: 'sites-folder',
@@ -116,6 +131,18 @@ export const setupData: Tool[] = [
       'echo \'eval "$(pyenv init - zsh)"\' >> ~/.zshrc'
     ]
   },
+  {
+    id: 'zoxide',
+    name: 'Zoxide',
+    description: 'Navegación de directorios más inteligente y rápida',
+    category: 'Development Tools',
+    url: 'https://github.com/ajeetdsouza/zoxide',
+    commands: ['brew install zoxide'],
+    icon: '🚀',
+    notes: [
+      'echo \'eval "$(zoxide init zsh)"\' >> ~/.zshrc'
+    ]
+  },
 
   // Applications
   {
@@ -206,6 +233,33 @@ export const setupData: Tool[] = [
       'ollama run deeseek-coder-v2:1.5b'
     ]
   },
+  {
+    id: 'rectangle',
+    name: 'Rectangle',
+    description: 'Gestión y organización de ventanas en macOS',
+    category: 'Applications',
+    url: 'https://rectangleapp.com/',
+    commands: ['brew install --cask rectangle'],
+    icon: '🪟'
+  },
+  {
+    id: 'discord',
+    name: 'Discord',
+    description: 'Chat y comunicación para comunidades',
+    category: 'Applications',
+    url: 'https://discord.com/',
+    commands: ['brew install --cask discord'],
+    icon: '💬'
+  },
+  {
+    id: 'spotify',
+    name: 'Spotify',
+    description: 'Reproductor de música para acompañar el código',
+    category: 'Applications',
+    url: 'https://www.spotify.com/',
+    commands: ['brew install --cask spotify'],
+    icon: '🎵'
+  },
 
   // Visual Studio Code
   {
@@ -279,6 +333,7 @@ export const extensionCategories = [
 ];
 
 export const categories = [
+  'Automated Setup',
   'Initial Setup',
   'Development Tools',
   'Applications',
