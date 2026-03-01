@@ -2,6 +2,7 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
+tap "gentleman-programming/tap/engram"
 
 # Formulas (Command Line Tools)
 brew "zsh"
@@ -11,6 +12,8 @@ brew "fnm"
 brew "gh"
 brew "pyenv"
 brew "rclone"
+brew "git-lfs"
+brew "git-delta"
 
 # Casks (GUI Applications)
 cask "warp"
