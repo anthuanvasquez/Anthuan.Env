@@ -26,8 +26,8 @@ export const setupData: Tool[] = [
     category: 'Automated Setup',
     url: 'https://github.com/anthuanvasquez/dotfiles',
     commands: [
-      'git clone git@github.com:anthuanvasquez/dotfiles.git ~/Sites/Anva.Env',
-      'cd ~/Sites/Anva.Env',
+      'git clone git@github.com:anthuanvasquez/dotfiles.git ~/Sites/dotfiles',
+      'cd ~/Sites/dotfiles',
       './installer/install.sh'
     ],
     icon: '🚀'
@@ -41,7 +41,7 @@ export const setupData: Tool[] = [
     category: 'Automated Setup',
     url: 'https://www.gnu.org/software/stow/',
     commands: [
-      'cd ~/Sites/Anva.Env',
+      'cd ~/Sites/dotfiles',
       'stow _Shell',
       'stow _Git',
       'stow _RClone'

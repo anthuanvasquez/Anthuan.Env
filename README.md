@@ -1,4 +1,4 @@
-# Anva.Env
+# Dotfiles
 
 ## What is this?
 
@@ -12,13 +12,13 @@ A macOS setup guide and configuration repository for web development. This repos
 
 ### 1. Download the repository
 
-Clone this repository to your preferred location (e.g., `~/Sites/Anva.Env`).
+Clone this repository to your preferred location (e.g., `~/Sites/dotfiles`).
 
 ```bash
 mkdir -p ~/Sites
 cd ~/Sites
-git clone git@github.com:anthuanvasquez/Anva.Env.git
-cd Anva.Env
+git clone git@github.com:anthuanvasquez/dotfiles.git
+cd dotfiles
 ```
 
 ### 2. Run the main installer
@@ -45,7 +45,7 @@ chmod +x installer/*.sh
 We use GNU Stow to manage symlinks cleanly from the root directory to your home directory (`~`).
 
 ```bash
-cd ~/Sites/Anva.Env
+cd ~/Sites/dotfiles
 stow shell
 stow git
 stow rclone
