@@ -51,28 +51,28 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
 </script>
 
 <template>
-  <div class="min-h-screen transition-colors duration-300 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans selection:bg-blue-200 dark:selection:bg-blue-900 transition-colors duration-200">
     <!-- Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700 shadow-soft">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center gap-3">
-            <div class="text-2xl animate-pulse-slow">🍎</div>
-            <h1 class="text-xl font-bold text-gray-900 dark:text-white">Dotfiles</h1>
+            <div class="text-2xl grayscale">🍎</div>
+            <h1 class="text-lg font-semibold tracking-tight">Dotfiles</h1>
           </div>
           <nav class="flex items-center gap-6">
             <a
               v-for="category in categories"
               :key="category"
               :href="`#${category.toLowerCase().replace(/\s+/g, '-')}`"
-              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+              class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
             >
               {{ category }}
             </a>
             <!-- Theme Toggle Button -->
             <button
               @click="toggleTheme"
-              class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 text-gray-700 dark:text-gray-300"
+              class="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400"
               :title="isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
             >
               <svg v-if="isDark" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,40 +88,31 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
     </header>
 
     <!-- Hero Section -->
-    <section class="relative py-24 overflow-hidden">
-      <!-- Decorative Background -->
-      <div class="absolute inset-0 opacity-30 dark:opacity-20">
-        <div class="absolute top-0 left-0 w-96 h-96 bg-primary-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow"></div>
-        <div class="absolute top-0 right-0 w-96 h-96 bg-secondary-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow"></div>
-        <div class="absolute bottom-0 left-1/2 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow"></div>
-      </div>
-
-      <div class="relative max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8 animate-fade-in">
+    <section class="py-24 sm:py-32">
+      <div class="max-w-5xl mx-auto text-center px-6 lg:px-8">
         <div class="mb-8">
-          <div class="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 text-sm font-medium mb-6">
-            <span class="mr-2">🚀</span>
+          <div class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300">
+            <span class="mr-2 grayscale">🚀</span>
             Configuración profesional para desarrolladores
           </div>
         </div>
 
-        <h1 class="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-          <span class="bg-gradient-to-r from-primary-600 via-secondary-600 to-purple-600 bg-clip-text text-transparent">
-            Dotfiles
-          </span>
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
+          Dotfiles
         </h1>
 
-        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+        <p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
           Una guía completa e interactiva para configurar tu Mac como un entorno de desarrollo web profesional.
-          <span class="font-semibold text-primary-600 dark:text-primary-400">Todas las herramientas esenciales</span> con comandos copiables al instante.
+          <span class="text-gray-900 dark:text-gray-200 font-medium">Todas las herramientas esenciales</span> con comandos copiables.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#initial-setup"
-            class="group relative overflow-hidden bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-medium hover:shadow-hard transform hover:-translate-y-1 inline-flex items-center gap-3"
+            class="bg-gray-900 hover:bg-black dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center gap-2"
           >
             <span>Comenzar Setup</span>
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"></path>
             </svg>
           </a>
@@ -129,7 +120,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
           <a
             href="https://github.com/anthuanvasquez/dotfiles"
             target="_blank"
-            class="group border-2 border-gray-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-400 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 inline-flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800"
+            class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center gap-2"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -139,66 +130,68 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
         </div>
 
         <!-- Statistics -->
-        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div class="text-center">
-            <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">{{ totalTools }}</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Herramientas</div>
+        <div class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+          <div>
+            <div class="text-3xl font-semibold text-gray-900 dark:text-gray-100">{{ totalTools }}</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Herramientas</div>
           </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-secondary-600 dark:text-secondary-400">30+</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Extensiones VS Code</div>
+          <div>
+            <div class="text-3xl font-semibold text-gray-900 dark:text-gray-100">30+</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Extensiones VS Code</div>
           </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">4</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Categorías</div>
+          <div>
+            <div class="text-3xl font-semibold text-gray-900 dark:text-gray-100">4</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Categorías</div>
           </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-green-600 dark:text-green-400">100%</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Gratis</div>
+          <div>
+            <div class="text-3xl font-semibold text-gray-900 dark:text-gray-100">100%</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Open Source</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Progress Bar -->
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-soft dark:shadow-none border border-gray-200 dark:border-gray-700 p-8 animate-slide-up">
-        <div class="flex items-center justify-between mb-4">
-          <div>
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Progreso del Setup</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Marca las herramientas que ya tienes instaladas</p>
-          </div>
-          <div class="text-right">
-            <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ completedCount }}/{{ totalTools }}</div>
-            <div class="text-sm text-gray-500 dark:text-gray-400">{{ progressPercentage }}% completado</div>
-          </div>
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 mb-16">
+      <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 flex flex-col sm:flex-row sm:items-center gap-6">
+        <div class="flex-1">
+          <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100">Progreso del Setup</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Marca las herramientas que ya tienes instaladas</p>
         </div>
-        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
-          <div
-            class="bg-gradient-to-r from-primary-500 to-secondary-500 h-3 rounded-full transition-all duration-500 ease-out"
-            :style="{ width: `${progressPercentage}%` }"
-          ></div>
+        <div class="flex-1 max-w-sm w-full">
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-500 dark:text-gray-400">{{ completedCount }} de {{ totalTools }} completado</span>
+            <span class="font-medium text-gray-900 dark:text-gray-100">{{ progressPercentage }}%</span>
+          </div>
+          <div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-2 overflow-hidden border border-gray-200 dark:border-gray-700">
+            <div
+              class="bg-blue-600 h-full rounded-full transition-all duration-500 ease-out"
+              :style="{ width: `${progressPercentage}%` }"
+            ></div>
+          </div>
         </div>
       </div>
-    </div>    <!-- Content Sections -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    </div>
+
+    <!-- Content Sections -->
+    <main class="max-w-5xl mx-auto px-6 lg:px-8 pb-24">
       <div
         v-for="category in categories"
         :key="category"
         :id="category.toLowerCase().replace(/\s+/g, '-')"
-        class="mb-20 animate-slide-up"
+        class="mb-24 scroll-mt-24"
       >
-        <div class="flex items-center gap-4 mb-10">
-          <div class="text-4xl">{{ getCategoryIcon(category) }}</div>
+        <div class="flex items-center gap-4 mb-8">
+          <div class="text-3xl grayscale">{{ getCategoryIcon(category) }}</div>
           <div>
-            <h2 class="text-4xl font-bold text-gray-900 dark:text-white">{{ category }}</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">
+            <h2 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">{{ category }}</h2>
+            <p class="text-gray-500 dark:text-gray-400 mt-1">
               {{ getCategoryDescription(category) }}
             </p>
           </div>
         </div>
 
-        <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
+        <div class="grid gap-6 md:grid-cols-2">
           <ToolCard
             v-for="tool in getToolsByCategory(category)"
             :key="tool.id"
@@ -209,12 +202,12 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
       </div>
 
       <!-- Code Editor Section -->
-      <div id="code-editor" class="mb-20 animate-slide-up">
-        <div class="flex items-center gap-4 mb-10">
-          <div class="text-4xl">💻</div>
+      <div id="code-editor" class="mb-24 scroll-mt-24">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="text-3xl grayscale">💻</div>
           <div>
-            <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Editor de Código</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">
+            <h2 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Editor de Código</h2>
+            <p class="text-gray-500 dark:text-gray-400 mt-1">
               VS Code y todas las extensiones esenciales para desarrollo web
             </p>
           </div>
@@ -224,74 +217,41 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
     </main>
 
     <!-- Footer -->
-    <footer class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-white py-20 overflow-hidden">
-      <!-- Decorative Background -->
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-0 left-0 w-72 h-72 bg-primary-500 rounded-full mix-blend-multiply filter blur-xl"></div>
-        <div class="absolute bottom-0 right-0 w-72 h-72 bg-secondary-500 rounded-full mix-blend-multiply filter blur-xl"></div>
-      </div>
+    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-12">
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div class="flex items-center gap-2">
+            <span class="text-xl grayscale">🚀</span>
+            <span class="font-medium">Dotfiles</span>
+          </div>
 
-      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <div class="text-4xl mb-6 animate-bounce">🚀</div>
-          <h3 class="text-3xl font-bold mb-4">¡Listo para desarrollar!</h3>
-          <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Ahora tienes todo lo necesario para comenzar a desarrollar aplicaciones web profesionales en tu Mac.
+          <div class="flex items-center gap-6">
+            <a
+              href="https://github.com/anthuanvasquez/dotfiles"
+              target="_blank"
+              class="text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://github.com/anthuanvasquez"
+              target="_blank"
+              class="text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+            >
+              @anthuanvasquez
+            </a>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-100 dark:border-gray-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400 dark:text-gray-500">
+          <p>
+            Diseñado para minimizar la fricción visual y técnica.
           </p>
-        </div>
-
-        <!-- Feature Highlights -->
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-          <div class="text-center">
-            <div class="text-2xl mb-3">⚡</div>
-            <h4 class="font-semibold mb-2">Configuración Rápida</h4>
-            <p class="text-gray-400 text-sm">Comandos copiables para instalación instantánea</p>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl mb-3">🎯</div>
-            <h4 class="font-semibold mb-2">Herramientas Curadas</h4>
-            <p class="text-gray-400 text-sm">Solo las mejores herramientas para desarrollo web</p>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl mb-3">📱</div>
-            <h4 class="font-semibold mb-2">Siempre Actualizado</h4>
-            <p class="text-gray-400 text-sm">Mantenemos las versiones más recientes</p>
-          </div>
-        </div>
-
-        <!-- Links and Info -->
-        <div class="border-t border-gray-700 pt-8">
-          <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-6 mb-4 md:mb-0">
-              <a
-                href="https://github.com/anthuanvasquez/dotfiles"
-                target="_blank"
-                class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                Contribuir en GitHub
-              </a>
-              <a
-                href="https://github.com/anthuanvasquez"
-                target="_blank"
-                class="text-gray-300 hover:text-white transition-colors duration-200"
-              >
-                @anthuanvasquez
-              </a>
-            </div>
-            <div class="text-center">
-              <p class="text-gray-400 text-sm">
-                Hecho con <span class="text-red-400">❤️</span> para la comunidad dev
-              </p>
-              <p class="text-gray-500 text-xs mt-1">
-                © 2026 Anthuan Vasquez. Código abierto bajo licencia MIT.
-              </p>
-            </div>
-          </div>
+          <p>
+            © 2026 Anthuan Vasquez. MIT License.
+          </p>
         </div>
       </div>
     </footer>
   </div>
 </template>
+
