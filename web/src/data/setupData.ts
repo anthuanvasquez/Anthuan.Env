@@ -33,6 +33,26 @@ export const setupData: Tool[] = [
     icon: '🚀'
   },
 
+  // Dotfiles Configuration
+  {
+    id: 'dotfiles-stow',
+    name: 'Dotfiles (GNU Stow)',
+    description: 'Gestiona tus archivos de configuración con symlinks',
+    category: 'Automated Setup',
+    url: 'https://www.gnu.org/software/stow/',
+    commands: [
+      'cd ~/Sites/Anthuan.Env',
+      'stow shell',
+      'stow git',
+      'stow rclone'
+    ],
+    icon: '🔗',
+    notes: [
+      'Asegúrate de tener GNU Stow instalado (`brew install stow`)',
+      'Esto creará symlinks desde la carpeta del repo a tu home (~/)'
+    ]
+  },
+
   // Initial Setup
   {
     id: 'sites-folder',
