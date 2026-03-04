@@ -24,11 +24,11 @@ export const setupData: Tool[] = [
     name: 'Automated Installer',
     description: 'Instala y configura todo con un solo script',
     category: 'Automated Setup',
-    url: 'https://github.com/anthuanvasquez/Anthuan.Env',
+    url: 'https://github.com/anthuanvasquez/dotfiles',
     commands: [
-      'git clone git@github.com:anthuanvasquez/Anthuan.Env.git ~/Sites/Anthuan.Env',
-      'cd ~/Sites/Anthuan.Env',
-      './scripts/install.sh'
+      'git clone git@github.com:anthuanvasquez/dotfiles.git ~/Sites/Anva.Env',
+      'cd ~/Sites/Anva.Env',
+      './installer/install.sh'
     ],
     icon: '🚀'
   },
@@ -41,10 +41,10 @@ export const setupData: Tool[] = [
     category: 'Automated Setup',
     url: 'https://www.gnu.org/software/stow/',
     commands: [
-      'cd ~/Sites/Anthuan.Env',
-      'stow shell',
-      'stow git',
-      'stow rclone'
+      'cd ~/Sites/Anva.Env',
+      'stow _Shell',
+      'stow _Git',
+      'stow _RClone'
     ],
     icon: '🔗',
     notes: [
@@ -281,7 +281,7 @@ export const setupData: Tool[] = [
     icon: '🎵'
   },
 
-  // Visual Studio Code
+  // Code Editor
   {
     id: 'vscode',
     name: 'Visual Studio Code',
@@ -293,69 +293,215 @@ export const setupData: Tool[] = [
   }
 ];
 
-export const vscodeExtensions = [
-  // Esenciales para desarrollo
-  { id: 'alefragnani.project-manager', name: 'Project Manager', description: 'Gestión de proyectos', category: 'Esenciales', icon: '📁' },
-  { id: 'eamodio.gitlens', name: 'GitLens', description: 'Mejoras para Git', category: 'Esenciales', icon: '🔗' },
-  { id: 'editorconfig.editorconfig', name: 'EditorConfig', description: 'Configuración de editor', category: 'Esenciales', icon: '⚙️' },
-  { id: 'gruntfuggly.todo-tree', name: 'TODO Tree', description: 'Visualización de TODOs', category: 'Esenciales', icon: '📝' },
-  { id: 'vscode-icons-team.vscode-icons', name: 'vscode-icons', description: 'Iconos para archivos', category: 'Esenciales', icon: '🎨' },
-
-  // Linters y Formatters
-  { id: 'dbaeumer.vscode-eslint', name: 'ESLint', description: 'Linter de JavaScript/TypeScript', category: 'Linters & Formatters', icon: '🔍' },
-  { id: 'esbenp.prettier-vscode', name: 'Prettier', description: 'Formateador de código', category: 'Linters & Formatters', icon: '✨' },
-  { id: 'stylelint.vscode-stylelint', name: 'Stylelint', description: 'Linter de CSS', category: 'Linters & Formatters', icon: '🎨' },
-  { id: 'yoavbls.pretty-ts-errors', name: 'Pretty TypeScript Errors', description: 'Errores de TS más legibles', category: 'Linters & Formatters', icon: '🚨' },
-
-  // Frameworks y Lenguajes
-  { id: 'bradlc.vscode-tailwindcss', name: 'Tailwind CSS IntelliSense', description: 'Autocompletado para Tailwind', category: 'Frameworks', icon: '🌊' },
-  { id: 'vue.volar', name: 'Vue - Official', description: 'Soporte oficial para Vue.js', category: 'Frameworks', icon: '💚' },
-  { id: 'astro-build.astro-vscode', name: 'Astro', description: 'Soporte para Astro framework', category: 'Frameworks', icon: '🚀' },
-  { id: 'dsznajder.es7-react-js-snippets', name: 'ES7+ React/Redux/React-Native snippets', description: 'Snippets para React', category: 'Frameworks', icon: '⚛️' },
-  { id: 'unifiedjs.vscode-mdx', name: 'MDX', description: 'Soporte para archivos MDX', category: 'Frameworks', icon: '📄' },
-  { id: 'redhat.vscode-yaml', name: 'YAML', description: 'Soporte para archivos YAML', category: 'Frameworks', icon: '📋' },
-
-  // IntelliSense y Autocompletado
-  { id: 'christian-kohler.npm-intellisense', name: 'npm Intellisense', description: 'Autocompletado para imports npm', category: 'IntelliSense', icon: '📦' },
-  { id: 'christian-kohler.path-intellisense', name: 'Path Intellisense', description: 'Autocompletado de rutas', category: 'IntelliSense', icon: '📁' },
-  { id: 'formulahendry.auto-rename-tag', name: 'Auto Rename Tag', description: 'Renombrado automático de tags HTML', category: 'IntelliSense', icon: '🏷️' },
-
-  // Git y CI/CD
-  { id: 'github.vscode-github-actions', name: 'GitHub Actions', description: 'Soporte para GitHub Actions', category: 'Git & CI/CD', icon: '⚡' },
-  { id: 'joshbolduc.commitlint', name: 'commitlint', description: 'Validación de commits', category: 'Git & CI/CD', icon: '✅' },
-  { id: 'vivaxy.vscode-conventional-commits', name: 'Conventional Commits', description: 'Ayuda para commits convencionales', category: 'Git & CI/CD', icon: '📝' },
-
-  // Utilidades
-  { id: 'mikestead.dotenv', name: 'DotENV', description: 'Soporte para archivos .env', category: 'Utilidades', icon: '🔐' },
-  { id: 'codeandstuff.package-json-upgrade', name: 'Package JSON Upgrade', description: 'Actualización de dependencias', category: 'Utilidades', icon: '⬆️' },
-  { id: 'wakatime.vscode-wakatime', name: 'WakaTime', description: 'Tracking de tiempo', category: 'Utilidades', icon: '⏱️' },
-  { id: '1password.op-vscode', name: '1Password', description: 'Integración con 1Password', category: 'Utilidades', icon: '🔑' },
-
-  // Tema y Apariencia
-  { id: 'enkia.tokyo-night', name: 'Tokyo Night', description: 'Tema oscuro popular', category: 'Tema & Apariencia', icon: '🌃' },
-  { id: 'oderwat.indent-rainbow', name: 'Indent Rainbow', description: 'Colores para indentación', category: 'Tema & Apariencia', icon: '🌈' },
-  { id: 'evondev.indent-rainbow-palettes', name: 'Indent Rainbow Palettes', description: 'Paletas para Indent Rainbow', category: 'Tema & Apariencia', icon: '🎨' },
-  { id: 'tal7aouy.rainbow-bracket', name: 'Rainbow Bracket', description: 'Colores para brackets', category: 'Tema & Apariencia', icon: '🌈' },
-
-  // AI y Productividad
-  { id: 'supermaven.supermaven', name: 'Supermaven', description: 'AI coding assistant', category: 'AI & Productividad', icon: '🤖' }
-];
-
-export const extensionCategories = [
-  'Esenciales',
-  'Linters & Formatters',
-  'Frameworks',
-  'IntelliSense',
-  'Git & CI/CD',
-  'Utilidades',
-  'Tema & Apariencia',
-  'AI & Productividad'
-];
-
-export const categories = [
-  'Automated Setup',
-  'Initial Setup',
-  'Development Tools',
-  'Applications',
-  'Code Editor'
+export const vscodeExtensions: VSCodeExtension[] = [
+  {
+    id: 'alefragnani.project-manager',
+    name: 'Project Manager',
+    description: 'Gestión de proyectos',
+    category: 'Esenciales',
+    icon: '📁'
+  },
+  {
+    id: 'eamodio.gitlens',
+    name: 'GitLens',
+    description: 'Mejoras para Git',
+    category: 'Esenciales',
+    icon: '🔗'
+  },
+  {
+    id: 'editorconfig.editorconfig',
+    name: 'EditorConfig',
+    description: 'Configuración de editor',
+    category: 'Esenciales',
+    icon: '⚙️'
+  },
+  {
+    id: 'gruntfuggly.todo-tree',
+    name: 'TODO Tree',
+    description: 'Visualización de TODOs',
+    category: 'Esenciales',
+    icon: '📝'
+  },
+  {
+    id: 'vscode-icons-team.vscode-icons',
+    name: 'vscode-icons',
+    description: 'Iconos para archivos',
+    category: 'Esenciales',
+    icon: '🎨'
+  },
+  {
+    id: 'dbaeumer.vscode-eslint',
+    name: 'ESLint',
+    description: 'Linter de JavaScript/TypeScript',
+    category: 'Linters & Formatters',
+    icon: '🔍'
+  },
+  {
+    id: 'esbenp.prettier-vscode',
+    name: 'Prettier',
+    description: 'Formateador de código',
+    category: 'Linters & Formatters',
+    icon: '✨'
+  },
+  {
+    id: 'stylelint.vscode-stylelint',
+    name: 'Stylelint',
+    description: 'Linter de CSS',
+    category: 'Linters & Formatters',
+    icon: '🎨'
+  },
+  {
+    id: 'yoavbls.pretty-ts-errors',
+    name: 'Pretty TypeScript Errors',
+    description: 'Errores de TS más legibles',
+    category: 'Linters & Formatters',
+    icon: '🚨'
+  },
+  {
+    id: 'bradlc.vscode-tailwindcss',
+    name: 'Tailwind CSS IntelliSense',
+    description: 'Autocompletado para Tailwind',
+    category: 'Frameworks',
+    icon: '🌊'
+  },
+  {
+    id: 'vue.volar',
+    name: 'Vue - Official',
+    description: 'Soporte oficial para Vue.js',
+    category: 'Frameworks',
+    icon: '💚'
+  },
+  {
+    id: 'astro-build.astro-vscode',
+    name: 'Astro',
+    description: 'Soporte para Astro framework',
+    category: 'Frameworks',
+    icon: '🚀'
+  },
+  {
+    id: 'dsznajder.es7-react-js-snippets',
+    name: 'ES7+ React/Redux/React-Native snippets',
+    description: 'Snippets para React',
+    category: 'Frameworks',
+    icon: '⚛️'
+  },
+  {
+    id: 'unifiedjs.vscode-mdx',
+    name: 'MDX',
+    description: 'Soporte para archivos MDX',
+    category: 'Frameworks',
+    icon: '📄'
+  },
+  {
+    id: 'redhat.vscode-yaml',
+    name: 'YAML',
+    description: 'Soporte para archivos YAML',
+    category: 'Frameworks',
+    icon: '📋'
+  },
+  {
+    id: 'christian-kohler.npm-intellisense',
+    name: 'npm IntelliSense',
+    description: 'Autocompletado para imports npm',
+    category: 'IntelliSense',
+    icon: '📦'
+  },
+  {
+    id: 'christian-kohler.path-intellisense',
+    name: 'Path IntelliSense',
+    description: 'Autocompletado de rutas',
+    category: 'IntelliSense',
+    icon: '📁'
+  },
+  {
+    id: 'formulahendry.auto-rename-tag',
+    name: 'Auto Rename Tag',
+    description: 'Renombrado automático de tags HTML',
+    category: 'IntelliSense',
+    icon: '🏷️'
+  },
+  {
+    id: 'github.vscode-github-actions',
+    name: 'GitHub Actions',
+    description: 'Soporte para GitHub Actions',
+    category: 'Git & CI/CD',
+    icon: '⚡'
+  },
+  {
+    id: 'joshbolduc.commitlint',
+    name: 'commitlint',
+    description: 'Validación de commits',
+    category: 'Git & CI/CD',
+    icon: '✅'
+  },
+  {
+    id: 'vivaxy.vscode-conventional-commits',
+    name: 'Conventional Commits',
+    description: 'Ayuda para commits convencionales',
+    category: 'Git & CI/CD',
+    icon: '📝'
+  },
+  {
+    id: 'mikestead.dotenv',
+    name: 'DotENV',
+    description: 'Soporte para archivos .env',
+    category: 'Utilidades',
+    icon: '🔐'
+  },
+  {
+    id: 'codeandstuff.package-json-upgrade',
+    name: 'Package JSON Upgrade',
+    description: 'Actualización de dependencias',
+    category: 'Utilidades',
+    icon: '⬆️'
+  },
+  {
+    id: 'wakatime.vscode-wakatime',
+    name: 'WakaTime',
+    description: 'Tracking de tiempo',
+    category: 'Utilidades',
+    icon: '⏱️'
+  },
+  {
+    id: '1password.op-vscode',
+    name: '1Password',
+    description: 'Integración con 1Password',
+    category: 'Utilidades',
+    icon: '🔑'
+  },
+  {
+    id: 'enkia.tokyo-night',
+    name: 'Tokyo Night',
+    description: 'Tema oscuro popular',
+    category: 'Tema & Apariencia',
+    icon: '🌃'
+  },
+  {
+    id: 'oderwat.indent-rainbow',
+    name: 'Indent Rainbow',
+    description: 'Colores para indentación',
+    category: 'Tema & Apariencia',
+    icon: '🌈'
+  },
+  {
+    id: 'evondev.indent-rainbow-palettes',
+    name: 'Indent Rainbow Palettes',
+    description: 'Paletas para Indent Rainbow',
+    category: 'Tema & Apariencia',
+    icon: '🎨'
+  },
+  {
+    id: 'tal7aouy.rainbow-bracket',
+    name: 'Rainbow Bracket',
+    description: 'Colores para brackets',
+    category: 'Tema & Apariencia',
+    icon: '🌈'
+  },
+  {
+    id: 'supermaven.supermaven',
+    name: 'Supermaven',
+    description: 'AI coding assistant',
+    category: 'AI & Productividad',
+    icon: '🤖'
+  }
 ];
