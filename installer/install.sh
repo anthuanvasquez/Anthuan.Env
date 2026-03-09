@@ -3,8 +3,10 @@
 set -e
 
 echo "======================================"
-echo "    Mac Dev Setup Installation Tool    "
+echo "    Installation Tool                 "
 echo "======================================"
+
+## Validate: check the OS to install scripts.
 
 # Determine directory
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -19,7 +21,14 @@ echo "3. Setting up Python..."
 bash "$DIR/python.sh"
 
 echo "4. Setting up VS Code..."
-bash "$DIR/vscode.sh"
+bash "$DIR/_VSCode/vscode.sh"
+
+## check os mac/wsl
+
+
+
+echo "5. Setting up macOS defaults..."
+bash "$DIR/_Osx/macos.sh
 
 echo "======================================"
 echo "    Installation Complete! 🚀         "
