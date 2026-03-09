@@ -55,12 +55,12 @@ stow rclone
 
 We keep things organized to make this scalable and maintainable:
 
-- `shell/`: Zsh configurations, aliases, and functions.
-- `git/`: Git global settings.
-- `rclone/`: RClone exclusion patterns.
-- `vscode/`: VS Code settings and extension installation scripts.
-- `antigravity/`: Antigravity MCP configurations and AI skills.
-- `gemini/`: Gemini AI settings.
+- `_Shell/`: Zsh configurations, aliases, and functions.
+- `_Git/`: Git global settings.
+- `_RClone/`: RClone exclusion patterns.
+- `_VSCode/`: VS Code settings and extension installation scripts.
+- `_Antigravity/`: Antigravity MCP configurations and AI skills.
+- `_Gemini/`: Gemini AI settings.
 - `installer/`: Modular bash scripts that automate the installation steps.
 - `Brewfile`: The central manifest for all Homebrew tools, apps, and fonts.
 - `web/`: An interactive frontend application mapping out the setup visually.
