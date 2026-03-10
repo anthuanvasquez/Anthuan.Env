@@ -11,6 +11,7 @@ software-properties-common
 
 # CLI Tools
 fzf
+eza
 ripgrep
 bat
 tmux
