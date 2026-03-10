@@ -1,0 +1,46 @@
+name: macOS Installation Test
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  test-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Grant execution permissions
+        run: chmod +x bootstrap install scripts/* os/* bin/* modules/*/install.sh
+
+      - name: Test Installation (Dry Run logic)
+        run: |
+          echo "🚀 Starting macOS Integration Test"
+          # On CI, we want to verify the logic without installing 50 heavy GUI apps
+          # So we check the Brewfile syntax first
+          brew bundle check --file=packages/macos || echo "⚠️ Some bundles are not installed (expected on clean CI)"
+          
+          echo "--- Running Install Orchestrator ---"
+          ./install
+          
+      - name: Run Environment Diagnostics
+        run: |
+          echo "--- Running bin/doctor ---"
+          ./bin/doctor
+          
+      - name: Verify Key Artifacts
+        run: |
+          echo "--- Verifying Symlinks ---"
+          [ -L "$HOME/.zshrc" ] && echo "✅ .zshrc symlink OK" || exit 1
+          [ -L "$HOME/.gitconfig" ] && echo "✅ .gitconfig symlink OK" || exit 1
+          
+          echo "--- Verifying CLI Tools ---"
+          ./bin/dev --help
+          ./bin/dot --help
