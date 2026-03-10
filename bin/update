@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# update: Keep the entire machine in sync.
+
+set -e
+
+DOTFILES_DIR="$HOME/dotfiles"
+
+echo "🔄 Updating dotfiles environment..."
+
+# 1. Update dotfiles repo
+if [ -d "$DOTFILES_DIR/.git" ]; then
+  echo "   [GIT] Pulling latest changes..."
+  cd "$DOTFILES_DIR" && git pull --rebase origin master
+else
+  echo "   [SKIP] dotfiles repo is not managed by git"
+fi
+
+# 2. Update Homebrew (macOS)
+if command -v brew &>/dev/null; then
+  echo "   [BREW] Updating and upgrading packages..."
+  brew update && brew upgrade && brew cleanup
+fi
+
+# 3. Update Node global packages
+if command -v pnpm &>/dev/null; then
+  echo "   [PNPM] Updating global packages..."
+  pnpm update --global
+elif command -v npm &>/dev/null; then
+  echo "   [NPM] Updating global packages..."
+  npm update -g
+fi
+
+echo "✅ Environment update complete."

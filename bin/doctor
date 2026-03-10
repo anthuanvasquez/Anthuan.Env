@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# doctor: Diagnose the current machine setup and environment.
+
+set -e
+
+echo "🔍 Running FAANG Environment Diagnostics..."
+
+check_tool() {
+    local tool="$1"
+    local description="$2"
+    if command -v "$tool" &>/dev/null; then
+        echo "   [✅] $tool is installed ($description)"
+    else
+        echo "   [❌] $tool NOT found ($description)"
+    fi
+}
+
+echo "--- Core Tools ---"
+check_tool "git" "Version control"
+check_tool "zsh" "Default shell"
+check_tool "brew" "Package manager (macOS)"
+check_tool "fzf" "Fuzzy finder"
+check_tool "ripgrep" "Fast grep (rg)"
+check_tool "bat" "Cat with wings"
+
+echo "--- Languages & Runtimes ---"
+check_tool "node" "Node.js"
+check_tool "pnpm" "Fast NPM alternative"
+check_tool "python" "Python interpreter"
+check_tool "go" "Go language"
+check_tool "rustc" "Rust compiler"
+
+echo "--- Cloud & Infrastructure ---"
+check_tool "docker" "Containerization"
+check_tool "kubectl" "Kubernetes control"
+check_tool "gh" "GitHub CLI"
+
+echo "--- System Health ---"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "   [✅] Running on macOS"
+else
+  echo "   [✅] Running on Linux/WSL"
+fi
+
+echo "✨ Diagnostics complete."
