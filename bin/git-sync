@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# git-sync: Sync local branches with origin and prune.
+
+set -e
+
+echo "🔄 Syncing Git repository..."
+
+# 1. Fetch from origin and prune
+echo "   [FETCH] Pulling latest updates and pruning old branches..."
+git fetch --all --prune
+
+# 2. Get current branch
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+# 3. Rebase current branch from origin
+echo "   [REBASE] Syncing $CURRENT_BRANCH with origin..."
+git pull --rebase origin "$CURRENT_BRANCH"
+
+# 4. Optional: Clean up merged local branches
+echo "   [CLEANUP] Removing local branches already merged into origin/master..."
+git branch --merged | grep -v "\*" | grep -v "master" | grep -v "main" | xargs -n 1 git branch -d 2>/dev/null || true
+
+echo "✅ Git synchronization complete."
