@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# install: Orchestrator for setting up the environment.
+
+set -e
+
+# Setup base path
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$DOTFILES_ROOT"
+
+echo "🎯 FAANG Environment Orchestrator"
+
+# 1. Create Symlinks
+./scripts/link-dotfiles
+
+# 2. Package Installation (macOS)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "🍺 Setting up Homebrew..."
+  if ! command -v brew &>/dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  
+  echo "📦 Installing packages from packages/macos..."
+  brew bundle --file=packages/macos
+fi
+
+# 3. Apply OS specific settings
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  echo " Applying macOS settings..."
+  ./os/macos.sh
+fi
+
+# 4. Modules Setup
+echo "🧩 Configuring Modules..."
+
+# Node.js module
+if [ -f "modules/node/install.sh" ]; then
+    echo "   [NODE] Running installer..."
+    ./modules/node/install.sh
+fi
+
+# VSCode module (requires code command)
+if command -v code &>/dev/null; then
+    echo "   [VSCODE] Configuring..."
+    ./modules/vscode/vscode.sh
+fi
+
+echo "✨ All done! Open a new shell to enjoy your FAANG setup."

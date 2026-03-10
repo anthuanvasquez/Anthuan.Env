@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# bootstrap: The one-command setup entry point.
+# curl -fsSL https://raw.githubusercontent.com/user/dotfiles/master/bootstrap | bash
+
+set -e
+
+# Define directories
+DOTFILES_DIR="$HOME/dotfiles"
+
+# 1. Install Xcode Command Line Tools (macOS only)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if ! xcode-select -p &>/dev/null; then
+    echo "🛠️ Installing Xcode Command Line Tools..."
+    xcode-select --install
+  fi
+fi
+
+# 2. Clone repo if not already there
+if [ ! -d "$DOTFILES_DIR" ]; then
+  echo "🚀 Cloning dotfiles..."
+  git clone https://github.com/anthuanvasquez/dotfiles.git "$DOTFILES_DIR"
+fi
+
+cd "$DOTFILES_DIR"
+
+# 3. Give execution permissions
+chmod +x bootstrap install scripts/* os/* bin/* modules/*/install.sh 2>/dev/null || true
+
+# 4. Launch installer
+echo "📦 Starting installation..."
+./install
