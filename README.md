@@ -1,60 +1,39 @@
-# Dotfiles
+# FAANG-style Dotfiles 🚀
 
-## What is this?
+Este repositorio contiene mi configuración personal, automatizada y modular. Está diseñado para una portabilidad extrema y una configuración declarativa en macOS, Linux y WSL.
 
-A macOS setup guide and configuration repository for web development. This repository organizes dotfiles and provides automated scripts to bootstrap a new Mac quickly.
+## 🏗️ Estructura
 
-## Requirements
+- `home/`: Archivos que se linkean directamente al `$HOME`.
+- `config/`: Lógica modular (shell, git, vscode).
+- `packages/`: Listas de paquetes declarativos (Brewfile, etc).
+- `os/`: Scripts específicos para ajustes del sistema operativo.
+- `bin/`: Binarios y scripts personales añadidos al `$PATH`.
+- `modules/`: Instalación y configuración modular para herramientas específicas (Node, Docker, etc).
+- `scripts/`: Lógica interna para la gestión del repositorio (linking, backups).
 
-- Git: installed when you run `xcode-select --install` in terminal
+## 🚀 Instalación Rápida
 
-## Quick Start
-
-### 1. Download the repository
-
-Clone this repository to your preferred location (e.g., `~/Sites/dotfiles`).
-
-```bash
-mkdir -p ~/Sites
-cd ~/Sites
-git clone git@github.com:anthuanvasquez/dotfiles.git
-cd dotfiles
-```
-
-### 2. Run the main installer
-
-This script will run everything in sequence:
-- Install Homebrew and formulas/casks from the `Brewfile` (including `stow` for dotfiles)
-- Setup Node.js environment (FNM, Node 22 via `.node-version`, pnpm)
-- Setup Python environment (pyenv, Python 3.12)
-- Configure VS Code extensions
-
-To run the installation:
+Para configurar una nueva máquina desde cero:
 
 ```bash
-./installer/install.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthuanvasquez/dotfiles/master/bootstrap)"
 ```
 
-**Note:** If you get a permission error, ensure the scripts are executable:
-```bash
-chmod +x installer/*.sh
-```
+## 🛠️ Ejecución Local
 
-
-## Manual Execution (Optional)
-
-If you'd rather run steps individually, you can execute any script independently:
+Si ya has clonado el repositorio:
 
 ```bash
-./installer/brew.sh       # Installs brew and Brewfile dependencies
-./installer/node.sh       # Sets up FNM, Node, PNPM
-./installer/python.sh     # Sets up Pyenv and Python 3.12
-./installer/vscode.sh     # Installs VS Code extensions
-./installer/macos.sh      # Applies sensible macOS defaults
+./install
 ```
 
-## The Web Application (`/web`)
+## 🧩 Principios de Diseño
 
-An interactive web interface built to display the setup instructions dynamically. It features copyable commands, a checklist for progress tracking, smooth navigation, and a responsive design out-of-the-box.
+1. **Portabilidad**: Funciona en múltiples plataformas.
+2. **Modularidad**: Separación clara entre entorno, aliases, funciones y herramientas.
+3. **Automatización**: Un solo comando para recrear todo el entorno.
+4. **Declarativo**: El repositorio es la fuente de verdad del estado de la máquina.
 
-For instructions on how to run it locally, read [web/INSTALL.md](web/INSTALL.md).
+---
+Mantenido por [Anthuan Vasquez](https://github.com/anthuanvasquez)
