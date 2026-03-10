@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# setup-project: Orchestrate new project creation.
-# GitHub repo + Local structure + Initial config.
+# setup-project: Orchestrate new project creation with AI context.
+# GitHub repo + Local structure + gemini.md (AI Context) + Notion connection.
 
 set -e
 
@@ -11,10 +11,10 @@ if [ -z "$PROJECT_NAME" ]; then
     exit 1
 fi
 
-echo "🚀 Setting up project: $PROJECT_NAME"
+echo "🚀 Setting up AI-Ready project: $PROJECT_NAME"
 
 # 1. Create directory structure
-mkdir -p "$PROJECT_NAME"/{src,tests,docs,bin}
+mkdir -p "$PROJECT_NAME"/{src,tests,docs,bin,.gemini/skills}
 cd "$PROJECT_NAME"
 
 # 2. Initialize Git
@@ -23,22 +23,63 @@ echo "# $PROJECT_NAME" > README.md
 echo "node_modules/\n.env\n.DS_Store" > .gitignore
 
 # 3. GitHub Repo (requires gh cli)
+GITHUB_REPO=""
 if command -v gh &>/dev/null; then
     echo "📦 Creating GitHub repository..."
-    gh repo create "$PROJECT_NAME" --private --source=. --remote=origin --push
+    # Create private repo and get the full name (org/repo)
+    GITHUB_REPO=$(gh repo create "$PROJECT_NAME" --private --source=. --remote=origin --push | grep -oE '[^/]+/[^/]+$')
 else
     echo "⚠️ gh cli not found. Skipping GitHub repo creation."
 fi
 
-# 4. Notion Project (Stub)
-# This is a placeholder for your Notion API logic.
-echo "📓 Creating project entry in Notion (Stub)..."
-# curl -X POST https://api.notion.com/v1/pages ...
+# 4. Notion Project Configuration (Placeholders)
+# In a real setup, you'd use a Notion CLI or MCP to get these IDs
+NOTION_URL="https://notion.so/replace-me"
+NOTION_DB_TASKS="id-de-la-db-de-tareas"
+NOTION_DB_NOTES="id-de-la-db-de-notas"
 
-# 5. Env configuration
-touch .env.example .env
+# 5. Create gemini.md (The Agent's Source of Truth)
+echo "🧠 Creating gemini.md AI Context..."
+cat <<EOF > gemini.md
+---
+project_id: "$(uuidgen 2>/dev/null || echo $PROJECT_NAME)"
+name: "$PROJECT_NAME"
+github_repo: "$GITHUB_REPO"
+notion_url: "$NOTION_URL"
+notion_db_tasks: "$NOTION_DB_TASKS"
+notion_db_notes: "$NOTION_DB_NOTES"
+stack: "unknown"
+status: "planning"
+created_at: "$(date +%Y-%m-%d)"
+---
 
-echo "✅ Project $PROJECT_NAME set up successfully!"
-echo "   - Directory structure created."
-echo "   - GitHub repo initialized and pushed."
-echo "   - Ready to code."
+# Project Context: $PROJECT_NAME
+
+## 🎯 Goal
+Define the main goal of the project here.
+
+## 📜 Agent Rules & Instructions
+- Use **Engram** to save all architectural decisions and session learnings.
+- Every feature must start as a **Notion Note** before implementation.
+- Sync every task created here to **GitHub Issues** using the sync skill.
+- Branches MUST follow the format: \`feature/[issue-id]-[slug]\`.
+
+## 🔗 External Links
+- **GitHub:** https://github.com/$GITHUB_REPO
+- **Notion Documentation:** $NOTION_URL
+
+## 🛠️ Tech Stack
+- (To be defined by the agent during exploration)
+EOF
+
+# 6. Initial Commit
+git add .
+git commit -m "chore: initial project setup with AI context"
+
+echo "✅ Project $PROJECT_NAME is now AI-Ready!"
+echo "   - Directory structure + .gemini/skills created."
+echo "   - GitHub repo initialized: $GITHUB_REPO"
+echo "   - gemini.md created (The Agent's Bible)."
+echo "   - Initial commit created."
+echo ""
+echo "💡 Tip: Ask your agent to 'explore the project' to start the orchestration."
