@@ -1,39 +1,39 @@
 # FAANG-style Dotfiles 🚀
 
-Este repositorio contiene mi configuración personal, automatizada y modular. Está diseñado para una portabilidad extrema y una configuración declarativa en macOS, Linux y WSL.
+This repository contains my personal, automated, and modular configuration. It is designed for extreme portability and declarative configuration across macOS, Linux, and WSL.
 
-## 🏗️ Estructura
+## 🏗️ Structure
 
-- `home/`: Archivos que se linkean directamente al `$HOME`.
-- `config/`: Lógica modular (shell, git, vscode).
-- `packages/`: Listas de paquetes declarativos (Brewfile, etc).
-- `os/`: Scripts específicos para ajustes del sistema operativo.
-- `bin/`: Binarios y scripts personales añadidos al `$PATH`.
-- `modules/`: Instalación y configuración modular para herramientas específicas (Node, Docker, etc).
-- `scripts/`: Lógica interna para la gestión del repositorio (linking, backups).
+- `home/`: Files that are symlinked directly to your `$HOME`.
+- `config/`: Modular logic (shell, git, vscode).
+- `packages/`: Declarative package lists (Brewfile, etc).
+- `os/`: OS-specific system adjustments.
+- `bin/`: Personal binaries and scripts added to your `$PATH`.
+- `modules/`: Modular installation and configuration for specific tools (Node, Docker, etc).
+- `scripts/`: Internal logic for repository management (linking, backups).
 
-## 🚀 Instalación Rápida
+## 🚀 Quick Install
 
-Para configurar una nueva máquina desde cero:
+To set up a new machine from scratch:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthuanvasquez/dotfiles/master/bootstrap)"
 ```
 
-## 🛠️ Ejecución Local
+## 🛠️ Local Execution
 
-Si ya has clonado el repositorio:
+If you have already cloned the repository:
 
 ```bash
 ./install
 ```
 
-## 🧩 Principios de Diseño
+## 🧩 Design Principles
 
-1. **Portabilidad**: Funciona en múltiples plataformas.
-2. **Modularidad**: Separación clara entre entorno, aliases, funciones y herramientas.
-3. **Automatización**: Un solo comando para recrear todo el entorno.
-4. **Declarativo**: El repositorio es la fuente de verdad del estado de la máquina.
+1. **Portability**: Works across multiple platforms.
+2. **Modularity**: Clear separation between environment, aliases, functions, and tools.
+3. **Automation**: A single command to recreate the entire environment.
+4. **Declarative**: The repository is the source of truth for the machine's state.
 
 ---
-Mantenido por [Anthuan Vasquez](https://github.com/anthuanvasquez)
+Maintained by [Anthuan Vasquez](https://github.com/anthuanvasquez)
