@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# link-dotfiles: Create symbolic links from dotfiles/home to $HOME
+
+set -e
+
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+HOME_DIR="$HOME"
+
+echo "🔗 Linking dotfiles..."
+
+# Function to create a symlink
+link_file() {
+    local src="$1"
+    local dst="$2"
+
+    mkdir -p "$(dirname "$dst")"
+
+    if [ -L "$dst" ]; then
+        echo "   [SKIP] Link already exists: $dst"
+    elif [ -f "$dst" ] || [ -d "$dst" ]; then
+        echo "   [BACKUP] $dst exists. Backing up to $dst.bak"
+        mv "$dst" "$dst.bak"
+        ln -s "$src" "$dst"
+    else
+        echo "   [LINK] Creating: $dst -> $src"
+        ln -s "$src" "$dst"
+    fi
+}
+
+# Find all files in home directory (including hidden)
+# Exclude .DS_Store
+find "$DOTFILES_ROOT/home" -type f -not -name ".DS_Store" | while read -r src; do
+    # Calculate relative path from home/
+    rel_path="${src#$DOTFILES_ROOT/home/}"
+    dst="$HOME_DIR/$rel_path"
+    link_file "$src" "$dst"
+done
+
+echo "✅ Linking complete."
