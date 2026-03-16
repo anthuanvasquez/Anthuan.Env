@@ -6,11 +6,6 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/dotfiles/',
-  build: {
-    outDir: '../docs',
-    emptyOutDir: true,
-  },
   plugins: [
     vue(),
     vueDevTools(),
