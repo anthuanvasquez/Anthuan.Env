@@ -35,12 +35,12 @@ fi
 # 4. Notion Project Configuration (Placeholders)
 # In a real setup, you'd use a Notion CLI or MCP to get these IDs
 NOTION_URL="https://notion.so/replace-me"
-NOTION_DB_TASKS="id-de-la-db-de-tareas"
-NOTION_DB_NOTES="id-de-la-db-de-notas"
+NOTION_DB_TASKS="tasks-db-id"
+NOTION_DB_NOTES="notes-db-id"
 
-# 5. Create gemini.md (The Agent's Source of Truth)
-echo "🧠 Creating gemini.md AI Context..."
-cat <<EOF > gemini.md
+# 5. Create AGENTS.md (The Agent's Source of Truth)
+echo "🧠 Creating AGENTS.md AI Context..."
+cat <<EOF > AGENTS.md
 ---
 project_id: "$(uuidgen 2>/dev/null || echo $PROJECT_NAME)"
 name: "$PROJECT_NAME"
