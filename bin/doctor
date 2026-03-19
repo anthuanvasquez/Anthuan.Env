@@ -3,7 +3,7 @@
 
 set -e
 
-echo "🔍 Running FAANG Environment Diagnostics..."
+echo "🔍 Running Environment Diagnostics..."
 
 check_tool() {
     local tool="$1"
@@ -16,14 +16,15 @@ check_tool() {
 }
 
 echo "--- Core Tools ---"
+check_tool "brew" "Package manager (macOS)"
 check_tool "git" "Version control"
 check_tool "zsh" "Default shell"
-check_tool "brew" "Package manager (macOS)"
 check_tool "fzf" "Fuzzy finder"
 check_tool "ripgrep" "Fast grep (rg)"
 check_tool "bat" "Cat with wings"
 
 echo "--- Languages & Runtimes ---"
+check_tool "fnm" "Fast Node Manager"
 check_tool "node" "Node.js"
 check_tool "pnpm" "Fast NPM alternative"
 check_tool "python" "Python interpreter"
