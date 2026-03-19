@@ -26,7 +26,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # 5. Tool Initializations
-eval "$(starship init zsh)"
+eval "$(ohmyposh init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(rbenv init -)"
 eval "$(pyenv init - zsh)"

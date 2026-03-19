@@ -7,7 +7,6 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Tool-specific environment
-export STARSHIP_CONFIG="$DOTFILES/home/.config/starship.toml"
 export GPG_TTY=$(tty)
 
 # Ensure Antigravity/AI tools have necessary context if needed
