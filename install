@@ -16,28 +16,24 @@ echo "🎯 Environment Orchestrator"
 echo "🍺 Setting up Homebrew..."
 if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 echo "📦 Installing packages from Brewfile..."
 ./scripts/install-packages
 
 # 3. Apply settings
-echo " Applying macOS settings..."
+echo "⚙️ Applying macOS settings..."
 ./os/macos.sh
 
-# 4. Modules Setup
+# 4. Modules Setup (auto-discovery)
 echo "🧩 Configuring Modules..."
 
-# Node.js module
-if [ -f "modules/node/install.sh" ]; then
-    echo "   [NODE] Running installer..."
-    ./modules/node/install.sh
-fi
-
-# VSCode module (requires code command)
-if command -v code &>/dev/null; then
-    echo "   [VSCODE] Configuring..."
-    ./modules/vscode/install.sh
-fi
+for module_script in modules/*/install.sh; do
+    module_name="$(basename "$(dirname "$module_script")")"
+    module_name_upper="$(echo "$module_name" | tr '[:lower:]' '[:upper:]')"
+    echo "   [$module_name_upper] Running installer..."
+    bash "$module_script"
+done
 
 echo "✨ All done! Open a new shell to enjoy your setup."
