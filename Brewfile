@@ -1,7 +1,5 @@
 # Taps
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
+tap "oven-sh/bun"
 tap "gentleman-programming/tap/engram"
 
 # Formulas
@@ -15,6 +13,7 @@ brew "dust"
 brew "btop"
 brew "ripgrep"
 brew "fd"
+brew "sd"
 brew "bat"
 brew "tldr"
 brew "fnm"
@@ -28,6 +27,7 @@ brew "lazygit"
 brew "lazydocker"
 brew "git-lfs"
 brew "git-delta"
+brew "engram"
 
 # Casks
 cask "warp"
