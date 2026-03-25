@@ -1,4 +1,4 @@
-# FAANG-style .zshrc
+# Dotfiles .zshrc
 # Minimal entry point. Logic lives in ~/dotfiles/config/shell/
 
 # Base path

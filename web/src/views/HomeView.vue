@@ -59,7 +59,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center gap-3">
             <div class="text-2xl grayscale">⚡</div>
-            <h1 class="text-lg font-semibold tracking-tight">FAANG Dotfiles</h1>
+            <h1 class="text-lg font-semibold tracking-tight">Dotfiles</h1>
           </div>
           <nav class="hidden md:flex items-center gap-6">
             <a
@@ -71,7 +71,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
               {{ category.split(' ')[0] }}
             </a>
             <a href="#usage-guide" class="text-xs font-bold uppercase tracking-widest text-blue-500 hover:text-blue-600 transition-colors">Guide</a>
-            
+
             <div class="w-px h-4 bg-gray-200 dark:bg-gray-800"></div>
 
             <button
@@ -94,7 +94,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
     <section class="py-24 sm:py-32 overflow-hidden">
       <div class="max-w-5xl mx-auto text-center px-6 lg:px-8 relative">
         <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 blur-3xl rounded-full -z-10"></div>
-        
+
         <div class="mb-8">
           <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
             Principal Engineer Stack v2.0
@@ -107,8 +107,8 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
         </h1>
 
         <p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
-          A declarative, modular, and AI-first configuration repository. 
-          Built for portability across macOS, Linux, and WSL.
+          A declarative, modular, and AI-first configuration repository.
+          Built exclusively for macOS.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -138,7 +138,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
 
     <!-- Content Sections -->
     <main class="max-w-5xl mx-auto px-6 lg:px-8 pb-24">
-      
+
       <!-- Progress and Stats -->
       <div class="grid md:grid-cols-3 gap-6 mb-24">
         <div class="md:col-span-2 bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 p-8 flex flex-col justify-center">
@@ -219,7 +219,7 @@ const handleToolCompleted = (toolId: string, completed: boolean) => {
       <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
         <div class="flex items-center justify-center gap-2 mb-8">
           <span class="text-2xl grayscale">⚡</span>
-          <span class="text-xl font-black tracking-tighter">FAANG DOTFILES</span>
+          <span class="text-xl font-black tracking-tighter">DOTFILES</span>
         </div>
 
         <div class="flex items-center justify-center gap-8 mb-12">

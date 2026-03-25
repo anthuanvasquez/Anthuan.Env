@@ -34,13 +34,13 @@ const steps = [
         Usage Guide
       </h2>
       <p class="text-lg text-gray-500 dark:text-gray-400">
-        How to get the most out of your FAANG-style developer environment.
+        How to get the most out of your developer environment.
       </p>
     </div>
 
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-      <div 
-        v-for="step in steps" 
+      <div
+        v-for="step in steps"
         :key="step.title"
         class="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 flex flex-col"
       >
@@ -62,12 +62,12 @@ const steps = [
       <div class="flex flex-col md:flex-row gap-8 items-center">
         <div class="flex-1">
           <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-            FAANG Architecture Principles
+            Architecture Principles
           </h3>
           <ul class="space-y-3 text-blue-800/80 dark:text-blue-200/70 text-sm">
             <li class="flex items-start gap-2">
               <span class="font-bold text-blue-600 dark:text-blue-400">•</span>
-              <span><strong>Portability:</strong> Identical setup on macOS, Linux, and WSL.</span>
+              <span><strong>Portability:</strong> Automated and identical setup across macOS devices.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="font-bold text-blue-600 dark:text-blue-400">•</span>
