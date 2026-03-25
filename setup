@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# bootstrap: The one-command setup entry point.
-# curl -fsSL https://raw.githubusercontent.com/user/dotfiles/master/bootstrap | bash
+# setup: The one-command setup entry point.
+# curl -fsSL https://raw.githubusercontent.com/user/dotfiles/master/setup | bash
 
 set -e
 
@@ -22,7 +22,7 @@ fi
 cd "$DOTFILES_DIR"
 
 # 3. Give execution permissions
-chmod +x bootstrap install scripts/* os/* bin/* modules/*/install.sh 2>/dev/null || true
+chmod +x setup  install scripts/* os/* bin/* modules/*/install.sh 2>/dev/null || true
 
 # 4. Launch installer
 echo "📦 Starting installation..."

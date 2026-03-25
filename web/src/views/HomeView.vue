@@ -34,7 +34,7 @@ const getCategoryIcon = (category: string) => {
 
 const getCategoryDescription = (category: string) => {
   const descriptions: Record<string, string> = {
-    'Core Orchestrators': 'Primary scripts to bootstrap and install the environment',
+    'Core Orchestrators': 'Primary scripts to setup and install the environment',
     'Productivity Tools': 'CLI tools in bin/ to speed up your daily development',
     'AI & Automation': 'Knowledge base and agents orchestration tools',
     'Development Tools': 'Essential runtimes and package managers'

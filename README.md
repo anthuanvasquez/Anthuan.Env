@@ -17,7 +17,7 @@ This repository contains my personal, automated, and modular configuration. It i
 To set up a new machine from scratch:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthuanvasquez/dotfiles/master/bootstrap)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthuanvasquez/dotfiles/master/setup)"
 ```
 
 ## 🛠️ Local Execution

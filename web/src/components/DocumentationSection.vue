@@ -2,8 +2,8 @@
 const steps = [
   {
     title: 'New Machine Setup',
-    description: 'Use the bootstrap script to initialize your environment in one command.',
-    command: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthuanvasquez/dotfiles/master/bootstrap)"',
+    description: 'Use the setup script to initialize your environment in one command.',
+    command: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthuanvasquez/dotfiles/master/setup)"',
     icon: '🚀'
   },
   {

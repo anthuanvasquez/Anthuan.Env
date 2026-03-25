@@ -20,13 +20,13 @@ export interface VSCodeExtension {
 export const setupData: Tool[] = [
   // Core Orchestrators
   {
-    id: 'bootstrap',
-    name: 'Bootstrap Script',
+    id: 'setup',
+    name: 'Setup Script',
     description: 'The one-command entry point to set up any new machine from scratch.',
     category: 'Core Orchestrators',
     url: 'https://github.com/anthuanvasquez/dotfiles',
     commands: [
-      '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthuanvasquez/dotfiles/master/bootstrap)"'
+      '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/anthuanvasquez/dotfiles/master/setup)"'
     ],
     icon: '🚀',
     notes: [
