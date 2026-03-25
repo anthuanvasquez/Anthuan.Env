@@ -12,18 +12,26 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # Directories
 # ------------------------------------------------------------------------------
 
+alias sites='z ~/Sites/'
+alias developer='z ~/Developer/'
+alias h='z ~/'
 alias c='clear'
-alias h='cd ~/'
-alias sites='cd ~/Sites/'
-alias developer='cd ~/Developer/'
-alias ls="command ls ${colorflag}"
-alias ll='ls -lh'
-alias la="ls -lha"
-alias lsd='ls -l | grep "^d"'
+alias ls='eza --icons'
+alias ll='eza -lh'
+alias la="eza -lha"
+alias lsd='eza -l | grep "^d"'
+alias cat='bat'
+alias grep='rg'
+alias find='fd'
+alias cd='z'
+alias help='tldr'
+alias zgit='lazygit'
+alias zdocker='lazydocker'
 
 # ------------------------------------------------------------------------------
 # Git
 # ------------------------------------------------------------------------------
+
 alias gs="git status"
 alias gl="git log"
 alias gc="git clone"
@@ -38,6 +46,7 @@ alias grh="git reset --hard && git clean -df"
 # ------------------------------------------------------------------------------
 # Docker
 # ------------------------------------------------------------------------------
+
 alias dockrmi='docker rmi $(docker images -q)'
 alias dockrmc='docker rm $(docker ps -a -q)'
 alias dockcmp='docker-compose'
