@@ -14,4 +14,7 @@ echo "Enabling Corepack for modern package managers..."
 corepack enable pnpm
 corepack prepare pnpm@latest --activate
 
+echo "Configuring npm to ignore scripts..."
+npm config set ignore-scripts true
+
 echo "Node.js environment setup complete!"
